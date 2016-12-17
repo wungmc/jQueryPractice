@@ -1,0 +1,59 @@
+<!DOCTYPE html
+PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>基本选择器</title>
+<style type="text/css">
+.clsFrame {
+	width:300px;
+	height:100px;
+}
+.clsFrame div,span {
+	display:none;
+	float:left;
+	width:65px;
+	height:65px;
+	border:1px solid #ccc;
+	margin:8px;
+}
+.clsOne {
+	background-color:#eee;
+}
+</style>
+<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+<script language="javascript" type="text/javascript">
+/*
+$(function() {
+	$("#divOne").css("display","block");
+})
+$(function() {
+	$("div span").css("display","block");
+})
+
+$(function() {
+	$(".clsFrame .clsOne").css("display","block");
+})
+
+$(function() {
+	$("div").css("display","block");
+})
+
+$(function() {//连title和css、js都显示
+	$("*").css("display","block");
+})
+*/
+$(function() {//合并匹配元素（#divOne和span是并列关系，都显示）
+	$("#divOne, span").css("display","block");
+})
+</script>
+
+</head>
+<body>
+<div class="clsFrame">
+	<div id="divOne">ID</div>
+	<div class="clsOne">Class</div>
+	<span>Span</span>
+</div>
+</body>
+</html>

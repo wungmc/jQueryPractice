@@ -1,0 +1,45 @@
+<!DOCTYPE html
+PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>ÇÐ»»ÊÂ¼þhover</title>
+<style type="text/css">
+.clsFrame{
+	width:220px;
+	border:1px solid #666;
+}
+.clsFrame .clsTitle {
+	background-color:#eee;
+	padding:5px;
+	font-weight:bold;
+}
+.clsFrame .clsContent {
+	padding:5px;
+	display:none;
+}
+
+</style>
+<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+<script language="javascript" type="text/javascript">
+
+$(function() {
+	$(".clsTitle").hover(
+		function(){
+			$(".clsContent").show();
+		}, 
+		function(){
+			$(".clsContent").hide();
+		}
+	);
+})
+</script>
+
+</head>
+<body>
+	<div class="clsFrame">
+		<div class="clsTitle">jQuery</div>
+		<div class="clsContent">Write less, Do more!</div>
+	</div>
+</body>
+</html>

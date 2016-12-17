@@ -1,0 +1,56 @@
+<!DOCTYPE html
+PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>动画停止和延时</title>
+<style type="text/css">
+.divFrame {
+	border:1px solid #666;
+	text-align:center;	
+	width:533px;
+	font-size:13px;
+}
+.divFrame .divTitle {
+	background-color:#eee;
+	padding:5px 0px 5px 0px;
+}
+.divFrame .divContent {
+	padding:5px 0px 5px 0px;
+}
+.divFrame .divContent img {
+	border:1px solid #eee;
+	padding:2px;
+}
+</style>
+<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+<script language="javascript" type="text/javascript">
+
+$(function() {
+	$("a:eq(0)").click(function () {
+		$("img").slideToggle(3000);
+		//$("img").animate({opacity:"hide"},600);//等价于fadeOut(600)
+	});
+	$("a:eq(1)").click(function () {
+		$("img").stop(true, true);
+	});
+	$("a:eq(2)").click(function () {
+		$("img").delay(2000).slideToggle(3000);
+	});
+})
+</script>
+
+</head>
+<body>
+	<div class="divFrame">
+		<div class="divTitle">
+			<a href="#" title="">开始</a>
+			<a href="#" title="">停止</a>
+			<a href="#" title="">延时</a>
+		</div>
+		<div class="divContent">
+			<img src="image/sight02.jpg" title="晨曦" />
+		</div>
+	</div>
+</body>
+</html>

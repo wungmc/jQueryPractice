@@ -1,0 +1,38 @@
+<!DOCTYPE html
+PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>移除事件unbind</title>
+<style type="text/css">
+</style>
+<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+<script language="javascript" type="text/javascript">
+
+$(function() {
+	$("#btn1").bind("click", function() {
+		$("#divTip").append("<p>按钮一事件</p>");
+	});
+	
+	//自定义事件函数
+	function oClick() {
+		$("#divTip").append("<p>按钮二事件</p>");
+	}
+	$("#btn2").bind("click", oClick);
+	
+	$("#btn3").bind("click", function() {
+		//$("input").unbind();//解除所有input元素上的事件
+		//$("#btn2").unbind("click");//解除按钮二的click事件
+		$("#btn2").unbind("click", oClick);//解除按钮二的click事件上的oClick函数
+	});
+})
+</script>
+
+</head>
+<body>
+	<input type="button" id="btn1" value="按钮一" />
+	<input type="button" id="btn2" value="按钮二" />
+	<input type="button" id="btn3" value="按钮三" />
+	<div id="divTip" style="padding-top:10px;"></div>
+</body>
+</html>

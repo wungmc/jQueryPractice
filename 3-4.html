@@ -1,0 +1,30 @@
+<!DOCTYPE html
+PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>设置元素的属性（二）</title>
+<style type="text/css">
+.clsImg {
+	border:1px solid #ccc;
+	padding:3px;
+	float:left;
+}
+
+</style>
+<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+<script language="javascript" type="text/javascript">
+
+$(function() {
+	$("img").attr("src", function(index) {
+		return "image/sight0" + Math.floor(Math.random()*2 + 1) + ".jpg";		
+	});
+	$("img").attr("title", "这是一幅风景画").addClass("clsImg");
+})
+</script>
+
+</head>
+<body>
+	<img src="image/sight03.jpg" alt="" style="float:left" />
+</body>
+</html>

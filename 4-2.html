@@ -1,0 +1,52 @@
+<!DOCTYPE html
+PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>Bind绑定事件方法</title>
+<style type="text/css">
+.btn{
+	width:60px;
+	padding:2px;
+	border:1px solid #666;
+}
+
+</style>
+<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+<script language="javascript" type="text/javascript">
+
+$(function() {
+	/*
+	$("#btnBind").bind("click", function() {
+		$(this).attr("disabled", "disabled");
+	});
+	*/
+	
+	//绑定多个元素：空格相隔
+	$("#btnBind").bind("click mouseout", function() {
+		$(this).attr("disabled", "disabled");
+	});
+	
+	//映射方式绑定不同的事件
+	$(":text").bind({
+		focus:function(){
+			$("#pTip").html("执行focus事件");
+		},
+		
+		change:function(){
+			$("#pTip").html("执行change事件");
+		}
+	});
+})
+</script>
+
+</head>
+<body>
+	<input type="button" id="btnBind" value="点击" class="btn" />
+	
+	<p>
+		姓名：<input type="text" />
+	</p>
+	<p id="pTip"></p>
+</body>
+</html>

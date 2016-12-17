@@ -1,0 +1,93 @@
+<!DOCTYPE html
+PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>动态创建节点元素</title>
+<style type="text/css">
+body {
+	font-size:13px;
+}
+ul {
+	padding:0px;
+	list-style-type:none;
+}
+ul li {
+	line-height:2.0em;
+}
+divL {
+	padding:0px 8px 0px 8px;
+	margin:5px;
+	width:200px;
+	float:left;
+	background-color:#eee;
+	border:1px solid #666;
+}
+divR {
+	padding:0px 8px 8px 8px;
+	margin:5px;
+	width:200px;
+	float:left;
+	display:none;
+	border:1px solid #ccc	;
+}
+.txt {
+	border:1px solid #666;
+	padding:3px;
+	width:120px;
+}
+.btn {
+	border:1px solid #666;
+	padding:2px;
+	width:50px;
+}
+
+</style>
+<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+<script language="javascript" type="text/javascript">
+
+$(function() {
+	$("#Button").click(function() {
+		var name = $("#select1").val();
+		var value = $("#text1").val();
+		var attrName = $("#select2").val();
+		var attrValue = $("#text2").val();
+		var dom = $("<" + name + " " + attrName + "='" + attrValue + "'>"
+			+ value + "</" + name + ">"
+			); //创建元素
+		//$(".divR").append(dom).show();
+		dom.appendTo($(".divR").show());
+	});
+})
+</script>
+
+</head>
+<body>
+	<div class="divL">
+		<ul>
+			<li>元素名：
+				<select id="select1">
+					<option value="p">p</option>
+					<option value="div">div</option>
+				</select>
+			</li>
+			<li>内容：
+				<input type="text" id="text1" class="txt" />
+			</li>
+			<li>属性名：
+				<select id="select2">
+					<option value="title">title</option>
+				</select>
+			</li>
+			<li>属性值：
+				<input type="text" id="text2" class="txt" />
+			</li>
+			<li style="padding-top:5px; text-align:center;">
+				<input type="button" id="Button" value="创建" class="btn"/>
+			</li>
+		</ul>
+	</div>
+	<div class="divR">
+	</div>
+</body>
+</html>

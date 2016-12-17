@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+<title>隔行变色</title>
+<style type="text/css">
+#tbStu {
+	border: 1px solid #666;
+	background-color:#eee;
+	width:260px;
+}
+#tbStu tr{
+	line-height:23px;
+}
+#tbStu tr th {
+	background-color:#ccc;
+	color:#fff;
+}
+#tbStu .trOdd {
+	background-color:#fff;
+}
+</style>
+
+<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+<script language="javascript" type="text/javascript">
+$(function() { 
+	$("#tbStu tr:nth-child(even)").addClass("trOdd");
+});
+</script>
+
+</head>
+<body>
+
+<table id="tbStu">
+<tbody>
+<tr>
+<th>序号</th><th>姓名</th>
+</tr>
+<tr>
+<td >1</td><td >王五</td>
+</tr>
+<tr>
+<td >2</td><td >张三</td>
+</tr>
+<tr>
+<td >3</td><td >李四</td>
+</tr>
+<tr>
+<td >4</td><td >麻子</td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>

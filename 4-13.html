@@ -1,0 +1,155 @@
+<!DOCTYPE html
+PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>删除记录时的提示效果</title>
+<style type="text/css">
+body {
+	font-size:13px;
+}
+.divShow {
+	line-height:32px;	
+	background-color:#eee;
+	width:280px;
+	padding-left:10px;
+}
+.divShow span {
+	padding-left:50px;
+}
+.dialog {
+	width:360px;
+	border:5px solid #666;
+	position:absolute;
+	z-index:101;
+	display:none;
+}
+.dialog .title {
+	background-color:#fbaf15;
+	padding:10px;
+	color:#fff;
+	font-weight:bold;
+}
+.dialog .title img {
+	float:right;
+}
+.dialog .content {
+	background-color:#fff;
+	padding:25px;
+	height:60px;
+}
+.dialog .content img {
+	float:left;
+}
+.dialog .content span {
+	float:left;
+	padding-top:4px;
+	padding-left:10px;
+}
+.dialog .bottom {
+	text-align:right;
+	padding:10px 10px 10px 0px;
+	background-color:#eee;
+}
+.mask {
+	width:100%;
+	height:100%;
+	background-color:#000;
+	position:absolute;
+	top:0px;
+	left:0px;
+	filter:alpha(opacity=30);
+	z-index:100;
+	display:none;
+}
+.btn {
+	border:1px solid #666;
+	padding:2px;
+	width:65px;
+}
+</style>
+<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+<script language="javascript" type="text/javascript">
+
+$(function() {
+	$("#btn1").click(function() {
+		if ($(".divShow :checkbox").is(":checked")){
+			$(".mask").show();
+			setDialog();
+			$(".dialog").show();
+		}
+		else {
+			alert("请选择要删除内容！");
+		}
+	});
+	
+	//设置弹出框的位置始终居中
+	function setDialog() {
+		var objW = $(window); //当前窗口
+		var objC = $(".dialog") //弹出框
+		var brsW = objW.width();
+		var brsH = objW.height();
+		var sclL = objW.scrollLeft();
+		var sclT = objW.scrollTop();
+		var curW = objC.width();
+		var curH = objC.height();
+		var left = sclL + (brsW - curW)/2;
+		var top = sclT + (brsH - curH)/2;
+		objC.css({"left":left, "top":top});
+	}
+	
+	//页面窗口大小改变事件
+	$(window).resize(function() {
+		if ($(".dialog").is(":visible"))
+			setDialog();
+	});
+	
+	//注册关闭图片和取消按钮点击事件
+	$(".dialog img, #btn3").click(function() {
+		$(".dialog").hide();
+		$(".mask").hide();
+	});
+	
+	//注册取消按钮点击事件
+	/*$("#btn3").click(function() {
+		$(".dialog").hide();
+		$(".mask").hide();
+	});*/
+	
+	//注册确定按钮点击事件
+	$("#btn2").click(function() {
+		$(".divShow :checked").next("a").remove();
+		$(".divShow :checked").remove();
+		$(".dialog").hide();
+		$(".mask").hide();
+	});
+})
+</script>
+
+</head>
+<body>
+	<div class="divShow">
+		<input type="checkbox" id="chkbox" />
+		<a href="#" >这是一条可删除的记录</a><br />
+		<input type="checkbox" id="chkbox2" />
+		<a href="#" >这是一条可删除的记录2</a>
+		<span>
+			<input type="button" id="btn1" class="btn" value="删除" />
+		</span>
+	<div>
+	<div class="mask"></div>
+	<div class="dialog">
+		<div class="title">
+			<img src="image/close.gif" alt="关闭" />删除时提示
+		</div>
+		<div class="content">
+			<img src="image/delete.jpg" alt="" />
+			<span>真的要删除该条记录吗？</span>
+		</div>
+		<div class="bottom">
+			<input type="button" id="btn2" value="确定" class="btn" />
+			<input type="button" id="btn3" value="取消" class="btn" />
+		</div>
+	</div>
+</body>
+</html>

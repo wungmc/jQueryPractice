@@ -1,0 +1,43 @@
+<!DOCTYPE html
+PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title> 简单的动画</title>
+<style type="text/css">
+.divFrame {
+	border:1px solid #ccc;
+	background-color:#eee;
+	width:60px;
+	height:60px;
+	font-size:13px;
+	padding:5px;
+	position:absolute;
+}
+</style>
+<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+<script language="javascript" type="text/javascript">
+
+$(function() {
+	$(".divFrame").click(function() {
+		$(this).animate(
+		{
+			//属性名是驼峰写法，例如font-size要写成fontSize
+			//width:"20%",
+			//height:"70px"
+			left: "20px",
+			top: "70px"
+		}, "slow", "swing", function() {
+			$(this).css({"border":"solid 3px #666"}).html("变大了");
+		});
+	});
+})
+</script>
+
+</head>
+<body>
+	<div class="divFrame">
+		点击变大
+	</div>
+</body>
+</html>

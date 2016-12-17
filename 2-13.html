@@ -1,0 +1,86 @@
+<!DOCTYPE html
+PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>表单过滤选择器</title>
+<style type="text/css">
+textarea, select, input, button, span {
+	display:none;
+}
+.btn {
+	border:1px solid #666;
+	padding:2px;
+	width:60px;
+	filter:progid:DXImageTransform.Mircosoft.Gradient(GradientType=0,StartColorStr=#ffffff,EndColorStr=#ECE9D8);
+}
+.txt {
+	border:1px solid #666;
+	padding:3px;
+}
+.img {
+	border:1px solid #ccc;
+	padding:2px;
+}
+.div {
+	border:1px solid #ccc;
+	padding:5px;
+	background-color:#eee;
+}
+
+</style>
+<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+<script language="javascript" type="text/javascript">
+
+$(function() {//显示input类型元素的总数量(所有input，select，textarea)
+	$("#divShow").html("input类型元素数量：" + $(":input").length).addClass("div");
+})
+$(function() {//显示所有文本框对象
+	$("#form1 :text").show();
+})
+$(function() {//显示所有密码框对象
+	$("#form1 :password").show();
+})
+$(function() {//显示所有单选按钮对象
+	$("#form1 :radio").show();
+	$("#form1 #Span1").show();
+})
+$(function() {//显示所有复选框对象
+	$("#form1 :checkbox").show();
+	$("#form1 #Span2").show(3000);
+})
+$(function() {//显示所有提交按钮对象
+	$("#form1 :submit").show(3000);
+})
+$(function() {//显示所有图片域对象
+	$("#form1 :image").show(3000);
+})
+$(function() {//显示所有重置按钮对象
+	$("#form1 :reset").show();
+})
+$(function() {//显示所有按钮对象
+	$("#form1 :button").show();
+})
+$(function() {//显示所有文件域对象
+	$("#form1 :file").show();
+})
+</script>
+
+</head>
+<body>
+	<form id="form1" style="width:241px;">
+		<textarea class="txt">textarea</textarea>
+		<select><option value="0">Item 0</option></select>
+		<input type="text" class="txt" value="Text"/>
+		<input type="password" class="txt" value="Password"/>
+		<input type="radio" /><span id="Span1">Radio</span>
+		<input type="checkbox" /><span id="Span2">CheckBox</span>
+		<input type="submit" value="Submit" class="btn" />
+		<input type="image" title="Image" src="image/tuzi.gif" class="img" />
+		<input type="reset" value="Reset" class="btn" />
+		<input type="button" value="Button" class="btn" />
+		<input type="file" value="File" class="txt" />
+		<div id="divShow"></div>
+	</form>
+</body>
+</html>

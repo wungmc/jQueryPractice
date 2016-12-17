@@ -1,0 +1,41 @@
+<!DOCTYPE html
+PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>包裹元素节点</title>
+<style type="text/css">
+p {
+	width:200px;
+	padding:5px;
+	background-color:#eee;
+}
+
+</style>
+<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+<script language="javascript" type="text/javascript">
+
+$(function() {
+	$(":button[value='包裹']").click(function() {
+		//将所有的段落加粗
+		$("p").wrap("<b></b>");
+		//将所有span的内容加斜体
+		$("span").wrapInner("<i></i>");
+		//将所有span用一个div包裹起来，注意：span会被移到一块，然后由一个div包裹
+		$("span").wrapAll("<div></div>");
+	});
+	$(":button[value='移除']").click(function() {
+		//去掉所有段落的加粗
+		$("span").unwrap();
+	});
+})
+</script>
+
+</head>
+<body>
+	<p>体育运动：<span id="span1">羽毛球</span></p>
+	<p>图书：<span id="span2">计算机，哲学</span></p>
+	<input type="button" value="包裹" />
+	<input type="button" value="移除" />
+</body>
+</html>

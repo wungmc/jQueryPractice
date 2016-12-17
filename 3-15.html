@@ -1,0 +1,39 @@
+<!DOCTYPE html
+PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>替换元素节点</title>
+<style type="text/css">
+span{
+	font-weight:bold;
+}
+p {
+	width:200px;
+	padding:5px;
+	background-color:#eee;
+}
+
+</style>
+<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+<script language="javascript" type="text/javascript">
+
+$(function() {
+	$(":button").click(function() {
+		//用后面的替换前面的
+		$("#span1").replaceWith("<span title='replaceWith'>崔健</span>");
+		//用前面的替换所有后面的
+		$("<span title='replaceAll'>cuijian@163.com</span>").replaceAll("#span2");
+		
+		//一旦完成替换，被替换的元素的事件都将全部消失
+	});
+})
+</script>
+
+</head>
+<body>
+	<p>姓名：<span id="span1"></span></p>
+	<p>邮箱：<span id="span2"></span></p>
+	<input type="button" value="替换" />
+</body>
+</html>

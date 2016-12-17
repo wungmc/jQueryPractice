@@ -1,0 +1,51 @@
+<!DOCTYPE html
+PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>事件的冒泡现象</title>
+<style type="text/css">
+.clsShow {
+	border:1px solid #ccc;
+	background-color:#eee;
+	margin-top:15px;
+	padding:5px;
+	width:220px;
+	line-height:1.8em;
+	display:none;
+}
+.btn	 {
+	width:60px;
+	padding:2px;
+	border:1px solid #666;
+}
+
+</style>
+<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+<script language="javascript" type="text/javascript">
+
+$(function() {
+	var count = 0; //记录单击事件运行次数
+	$("body, div, #btnShow").click(function(event){
+		count++;
+		$(".clsShow").html("运行次数：" + count).show();//运行了3次
+		
+		//单击按钮一次，但是确运行了三次。这是因为虽然单击的是按钮，但由于
+		//外层的div和body也都有该单击事件，事件会继续向外冒泡，这叫事件的冒泡现象
+		//很多情况下，不希望冒泡现象出现，即单击按钮，就只有按钮相应事件，
+		//可以通过stopPropagation()函数阻止冒泡
+		event.stopPropagation();
+		//也可以通过return false来阻止。
+		//return false;
+	});
+})
+</script>
+
+</head>
+<body>
+	<div>
+		<input type="button" id="btnShow" value="点击" />
+	</div>
+	<div class="clsShow"></div>
+</body>
+</html>

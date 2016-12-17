@@ -1,0 +1,107 @@
+<!DOCTYPE html
+PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>文本框中的事件应用</title>
+<style type="text/css">
+body {
+	font-size:12px;
+}
+/* 初始状态样式 */
+.divInit {
+	width:400px;
+	height:55px;
+	line-height:55px;
+	padding-left:20px;
+}
+.txtInit {
+	border:1px solid #666;
+	padding:3px;
+	background-image:url('image/bg_email_input.gif');
+}
+.spnInit {
+	width:179px;
+	height:40px;
+	line-height:40px;
+	float:right;
+	margin-top:8px;
+	padding-left:10px;
+	background-repeat:no-repeat;
+}
+/* 失去焦点样式 */
+.divBlur {
+	background-color:#FEEEC2;
+}
+.txtBlur {
+	border:1px solid #666;
+	padding:3px;
+	background-image:url('image/bg_email_input2.gif');
+}
+.spnBlur {
+	background-image:url('image/bg_email_wrong.gif');
+}
+
+.divFocu {
+	background-colo:#EDFFD5;
+}
+.spnSucc {
+	background-image:url('image/pic_Email_ok.gif');
+	margin-top:20px;
+}
+</style>
+<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+<script language="javascript" type="text/javascript">
+
+$(function() {
+	$("#txtEmail").trigger("focus");//默认文本框获取焦点
+	$("#txtEmail").focus(function(){ //文本框获取焦点
+		$(this).removeClass("txtBlur").addClass("txtInit");		
+		$("#email").removeClass("divBlur").addClass("divFocu");
+		$("#spnTip").removeClass("spnBlur").removeClass("spnSucc")
+			.html("请输入邮箱");
+	});
+	
+	//文本框失去焦点
+	$("#txtEmail").blur(function(){
+		var txt = $(this).val();
+		if (txt.length == 0) {
+			$(this).removeClass("txtInit").addClass("txtBlur");
+			$("#email").removeClass("divFocu").addClass("divBlur");
+			$("#spnTip").addClass("spnBlur").html("邮箱为空");
+		}
+		else {
+			if (!chkEmail(txt)) {
+				$(this).removeClass("txtInit").addClass("txtBlur");
+				$("#email").removeClass("divFocu").addClass("divBlur");
+				$("#spnTip").addClass("spnBlur").html("邮箱格式不正确");
+			}
+			else {
+				$(this).addClass("txtInit").removeClass("txtBlur");
+				$("#email").removeClass("divFocu");
+				$("#spnTip").removeClass("spnBlur").addClass("spnSucc").html("");
+			}
+		}
+	});
+	
+	//验证邮箱格式
+	function chkEmail(strEmail) {
+		//var reg = /^\w+{[-+.]\w+)*@\w+{[-.]\w+)*\.\w+{[-.]\w+)*$/;
+		var reg = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;
+		if (!reg.test(strEmail))
+			return false;
+		return true;
+	}
+})
+</script>
+
+</head>
+<body>
+	<form id="form1" action="#">
+		<div id="email" class="divInit">邮箱：
+			<span id="spnTip" class="spnInit"></span>
+			<input type="text" id="txtEmail" class="txtInit" />
+		</div>
+	</form>
+</body>
+</html>
