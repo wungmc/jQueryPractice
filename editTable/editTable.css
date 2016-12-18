@@ -1,0 +1,17 @@
+/* CSS Document */
+table {
+	border:1px solid black;
+	/*让单元格之间的边框合并*/
+	border-collapse:collapse;
+	width:400px;
+}
+table td{
+	border:1px solid black;
+	width:50%;
+}
+table th{
+	border:1px solid black;
+	width:50%;
+}
+tbody th{
+	background-color:#0099FF;

@@ -1,0 +1,51 @@
+/* CSS Document */
+ul li{
+	/*清除ul li前面的小圆点*/
+	list-style:none;
+}
+ul{
+	/*清除菜单的缩进值*/
+	padding:0px;
+	margin:0px;	
+}
+/*主菜单样式*/
+.main, .hmain{
+	background-image:url(../images/title.gif);
+ 	background-repeat:repeat-x;
+	width:120px;
+}
+li {
+	background-color:#EEEEEE;
+}
+a{
+	text-decoration:none;
+	/*所有的a向右缩进*/
+	padding-left:20px;
+	/*将a充满整个所在的区域*/
+	display:block;
+	/*解决ie6不兼容问题*/
+	display:inline-block;
+	width:100px;
+	/*调整a之间的距离*/
+	padding-top:3px;
+	padding-bottom:3px;
+}
+.main a, .hmain a{		
+	color:#FFFFFF;
+	background-image:url(../images/collapsed.gif);
+	background-repeat:no-repeat;
+	background-position:3px center;
+}
+.main li a, .hmain li a{
+	color:#000000;
+	background-image:none;
+}
+/*隐藏子菜单*/
+.main ul, .hmain ul{
+	display:none;
+}
+.hmain{
+	float:left;
+	margin-right:1px;
+}
+

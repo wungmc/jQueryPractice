@@ -1,0 +1,26 @@
+.window{
+	background-color:#D0DEF0;
+	width:250px;
+	padding:2px;/*让window里的元素之间有2px的间隙*/
+	margin:5px;
+	position:absolute;/*控制窗口绝对定位*/
+	display:none;/*默认不显示*/
+}
+.content{
+	background-color:#FFFFFF;
+	height:150px;
+	font-size:14px;
+	padding:5px;
+	overflow:auto;/*内容如果超过了指定的高度和宽度则显示滚动条*/
+}
+.title{
+	padding-left:5px;
+	font-size:14px;
+	height:20px;
+}
+.title img{
+	width:14px;
+	height:14px;
+	float:right;
+	cursor:pointer;
+}

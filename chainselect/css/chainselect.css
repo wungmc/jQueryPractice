@@ -1,0 +1,24 @@
+
+.loading{
+	width:400px;
+	margin-left:auto;
+	margin-right:auto;
+	visibility: hidden;/*display不会保留元素所在的区域，而visibility会保留*/
+}
+.loading p{
+	text-align:center;
+}
+p{
+	margin:0;
+}
+.car{
+	width:700px;
+	margin:0 auto;/*margin的top和bottom都是0，left和right是auto*/
+	text-align:center;
+}
+.carimage{
+	text-align:center;
+}
+.cartype, .wheeltype, .car img , .carloading, .carimg{
+	display:none;
+}

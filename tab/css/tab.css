@@ -1,0 +1,62 @@
+ul, li{
+	list-style:none;
+	margin:0px;
+	padding:0px;
+}
+#tabfirst li {
+	float:left;
+	background-color:#868686;
+	padding:7px;
+	padding-right:1px;
+	color:#FFFFFF;
+	border:1px solid white;
+}
+#tabfirst li.tabin{
+	background-color:#6e6e6e;
+	border:1px solid #6e6e6e;
+}
+div.contentfirst{
+	/*清除从li继承的float属性*/
+	clear:left;
+	background-color:#6E6e6e;
+	width:300px;
+	height:100px;
+	color:#FFFFFF;
+	display:none;
+	padding:10px;
+}
+div.contentin{
+	display:block;
+}
+
+
+#tabsecond li {
+	float:left;
+	background-color:#ffffff;
+	padding:7px;
+	padding-right:1px;
+	color: blue;
+	cursor:pointer;/*当鼠标移到tab上时，显示手型*/
+}
+#tabsecond li.tabin{
+	background-color:#f2f6fb;
+	border:1px solid black;
+	border-bottom:none;
+	/*将其置于最上层，将contentsecond的边框盖住*/
+	z-index:3;
+	position:relative;/*不加此句，则边框没有覆盖效果*/
+}
+#contentsecond{
+	background-color: #f2f6fb;
+	width:400px;
+	height:200px;
+	clear:left;
+	padding:10px;
+	border:1px solid #000000;
+	/*向上漂移1px*/
+	position:relative;
+	top:-1px;
+}
+img{
+	display:none;
+}
