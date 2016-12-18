@@ -113,3 +113,22 @@ getJSON函数获取数据
 - listManager.html
 
 数据管理
+- chainselect
+
+级联下拉框
+- editTable
+
+可以编辑的表格
+
+- menu
+
+横向纵向菜单
+- tab
+
+tab标签页
+- userVerify
+
+用户名校验
+- window
+
+弹出窗口
